@@ -1,0 +1,312 @@
+/* Daily Trivia Challenge — styles
+   Mobile-first, high-contrast, generous touch targets. Designed to feel
+   comfortable for a wide age range (25-75) with a clean, readable layout. */
+
+:root {
+  --bg: #0f172a;
+  --bg-2: #1e293b;
+  --card: #ffffff;
+  --ink: #0f172a;
+  --ink-soft: #475569;
+  --line: #e2e8f0;
+  --brand: #6366f1;
+  --brand-2: #4f46e5;
+  --good: #16a34a;
+  --good-bg: #dcfce7;
+  --partial: #d97706;
+  --partial-bg: #fef3c7;
+  --bad: #dc2626;
+  --bad-bg: #fee2e2;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(2, 6, 23, 0.18);
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background:
+    radial-gradient(1200px 600px at 50% -10%, #334155 0%, var(--bg) 55%) fixed;
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-size: 17px;
+  line-height: 1.5;
+}
+
+.app {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 16px 16px 48px;
+  min-height: 100vh;
+}
+
+/* ---------- top bar ---------- */
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #e2e8f0;
+  padding: 8px 4px 16px;
+}
+.brand { font-weight: 800; font-size: 1.15rem; letter-spacing: 0.2px; }
+.brand span { color: #fff; }
+.reset-timer { text-align: right; line-height: 1.1; }
+.reset-label { display: block; font-size: 0.7rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.06em; }
+.countdown { font-variant-numeric: tabular-nums; font-weight: 700; color: #c7d2fe; }
+
+/* ---------- cards / screens ---------- */
+.screen { animation: fade 0.25s ease; }
+@keyframes fade { from { opacity: 0; transform: translateY(6px);} to {opacity:1; transform:none;} }
+.hidden { display: none !important; }
+
+.card {
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 24px;
+}
+
+h1 { font-size: 1.6rem; margin: 0 0 6px; }
+.subtle { color: var(--ink-soft); }
+.lead { font-size: 1.02rem; }
+
+.hero .format-list {
+  list-style: none;
+  padding: 0;
+  margin: 18px 0;
+  display: grid;
+  gap: 8px;
+}
+.format-list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #f8fafc;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: 0.95rem;
+}
+.format-list li span {
+  flex: 0 0 auto;
+  min-width: 42px;
+  text-align: center;
+  font-weight: 800;
+  color: var(--brand-2);
+  background: #eef2ff;
+  border-radius: 6px;
+  padding: 2px 4px;
+}
+
+.field { display: block; margin: 18px 0; }
+.field > span { display: block; font-size: 0.85rem; color: var(--ink-soft); margin-bottom: 6px; }
+.field input {
+  width: 100%;
+  padding: 14px;
+  font-size: 1.05rem;
+  border: 2px solid var(--line);
+  border-radius: 12px;
+}
+.field input:focus { outline: none; border-color: var(--brand); }
+
+.stats { margin-top: 14px; text-align: center; font-size: 0.85rem; }
+
+/* ---------- buttons ---------- */
+.primary {
+  display: block;
+  width: 100%;
+  border: none;
+  background: linear-gradient(180deg, var(--brand), var(--brand-2));
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.05rem;
+  padding: 16px;
+  border-radius: 14px;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(79, 70, 229, 0.35);
+  transition: transform 0.06s ease, opacity 0.2s ease;
+}
+.primary:hover { transform: translateY(-1px); }
+.primary:active { transform: translateY(1px); }
+.primary:disabled { opacity: 0.45; cursor: not-allowed; box-shadow: none; transform: none; }
+.big { margin-top: 18px; }
+
+.ghost {
+  border: 2px solid var(--line);
+  background: #fff;
+  color: var(--ink);
+  font-weight: 600;
+  padding: 14px 16px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+.btn-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  background: #fff;
+  border: 2px solid var(--line);
+  color: var(--ink);
+  font-weight: 600;
+  padding: 14px 16px;
+  border-radius: 12px;
+}
+
+/* ---------- game meta ---------- */
+.game-meta { margin-bottom: 14px; }
+.progress-track {
+  height: 8px;
+  background: #334155;
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #818cf8, #22d3ee);
+  transition: width 0.3s ease;
+}
+.meta-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+.meta-row.tags { gap: 8px; flex-wrap: wrap; justify-content: flex-start; }
+.pill {
+  background: rgba(255,255,255,0.1);
+  color: #e2e8f0;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+.pill.score { background: #22d3ee; color: #082f49; }
+.tag {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: #e2e8f0;
+  color: #334155;
+}
+.tag.cat { background: #ede9fe; color: #5b21b6; }
+.tag.pts { background: #fef3c7; color: #92400e; }
+
+/* ---------- question body ---------- */
+.q-prompt { font-size: 1.25rem; margin: 4px 0 18px; line-height: 1.35; }
+.q-body { display: grid; gap: 12px; }
+.hint { color: var(--ink-soft); font-size: 0.85rem; margin: 2px 0 0; }
+
+.option {
+  text-align: left;
+  padding: 16px;
+  font-size: 1.02rem;
+  border: 2px solid var(--line);
+  background: #fff;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: border-color 0.12s, background 0.12s;
+}
+.option:hover { border-color: #c7d2fe; }
+.option.selected { border-color: var(--brand); background: #eef2ff; font-weight: 600; }
+.option:disabled { cursor: default; opacity: 0.85; }
+
+.text-answer {
+  width: 100%;
+  padding: 16px;
+  font-size: 1.1rem;
+  border: 2px solid var(--line);
+  border-radius: 12px;
+}
+.text-answer:focus { outline: none; border-color: var(--brand); }
+
+.flag-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.flag-option {
+  border: 3px solid var(--line);
+  background: #f8fafc;
+  border-radius: 12px;
+  padding: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.flag-option img { width: 100%; height: auto; border-radius: 4px; display: block; box-shadow: 0 1px 4px rgba(0,0,0,0.2); }
+.flag-option.selected { border-color: var(--brand); background: #eef2ff; }
+
+.map-host {
+  height: 360px;
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 2px solid var(--line);
+}
+
+/* ---------- feedback ---------- */
+.feedback {
+  margin-top: 18px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  font-size: 0.98rem;
+}
+.feedback.good { background: var(--good-bg); color: #065f46; border: 1px solid #86efac; }
+.feedback.partial { background: var(--partial-bg); color: #92400e; border: 1px solid #fcd34d; }
+.feedback.bad { background: var(--bad-bg); color: #991b1b; border: 1px solid #fca5a5; }
+
+/* ---------- results ---------- */
+.results { text-align: center; }
+.score-big { font-size: 3.2rem; font-weight: 800; margin: 6px 0 4px; }
+.score-big .subtle { font-size: 1.4rem; font-weight: 600; margin-left: 6px; }
+.replay { margin-top: 8px; }
+
+.breakdown {
+  text-align: left;
+  margin: 22px 0;
+  display: grid;
+  gap: 6px;
+}
+.breakdown-row {
+  display: grid;
+  grid-template-columns: 28px 1fr auto;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  background: #f8fafc;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  font-size: 0.92rem;
+}
+.bd-pts { font-weight: 700; font-variant-numeric: tabular-nums; }
+
+.share-title { margin: 8px 0 10px; }
+.scorecard {
+  text-align: left;
+  background: #0f172a;
+  color: #e2e8f0;
+  border-radius: 12px;
+  padding: 16px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.95rem;
+  white-space: pre-wrap;
+  word-break: break-word;
+  line-height: 1.5;
+}
+.share-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+  margin-top: 14px;
+}
+.share-actions .primary { margin: 0; }
+
+.footer { text-align: center; margin-top: 22px; font-size: 0.8rem; color: #94a3b8; }
+
+/* ---------- responsive ---------- */
+@media (max-width: 420px) {
+  body { font-size: 16px; }
+  .card { padding: 18px; }
+  .q-prompt { font-size: 1.15rem; }
+  .share-actions { grid-template-columns: 1fr; }
+}

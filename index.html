@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#0f172a" />
+  <title>Daily Trivia Challenge</title>
+  <meta name="description" content="A new 10-question trivia challenge every day. Same questions for everyone, resets at midnight EST. Challenge your friends for the high score!" />
+
+  <!-- Leaflet (maps) -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+          integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="brand">🧠 <span>Daily Trivia</span></div>
+      <div class="reset-timer">
+        <span class="reset-label">Next puzzle in</span>
+        <span id="countdown" class="countdown">--:--:--</span>
+      </div>
+    </header>
+
+    <!-- ============================ START ============================ -->
+    <main id="screen-start" class="screen">
+      <div class="card hero">
+        <h1>Today's Challenge</h1>
+        <p id="today-date" class="subtle"></p>
+        <p class="lead">
+          Ten questions. Everyone plays the same ones. They get harder — and worth
+          more — as you go. Finish, then text your scorecard to friends and see who
+          tops the leaderboard.
+        </p>
+
+        <ul class="format-list">
+          <li><span>1–3</span> Multiple choice</li>
+          <li><span>4–6</span> Written answers</li>
+          <li><span>7–9</span> Flags &amp; map locations</li>
+          <li><span>10</span> Number estimate (partial credit)</li>
+        </ul>
+
+        <label class="field">
+          <span>Your name (for the scorecard)</span>
+          <input id="name-input" type="text" maxlength="24" placeholder="e.g. Pat" autocomplete="off" />
+        </label>
+
+        <button id="start-btn" class="primary big">Start Today's Challenge</button>
+        <p id="stats-line" class="subtle stats"></p>
+      </div>
+    </main>
+
+    <!-- ============================ GAME ============================= -->
+    <main id="screen-game" class="screen hidden">
+      <div class="game-meta">
+        <div class="progress-track"><div id="progress-fill" class="progress-fill"></div></div>
+        <div class="meta-row">
+          <span id="q-progress" class="pill">Question 1 of 10</span>
+          <span id="running-score" class="pill score">0 pts</span>
+        </div>
+        <div class="meta-row tags">
+          <span id="q-category" class="tag cat"></span>
+          <span id="q-type" class="tag"></span>
+          <span id="q-points" class="tag pts"></span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div id="question-host"></div>
+        <div id="feedback" class="feedback hidden"></div>
+      </div>
+
+      <button id="submit-btn" class="primary big" disabled>Submit Answer</button>
+    </main>
+
+    <!-- =========================== RESULTS =========================== -->
+    <main id="screen-results" class="screen hidden">
+      <div class="card results">
+        <p id="results-date" class="subtle"></p>
+        <h1 id="final-headline">Nice work!</h1>
+        <div class="score-big">
+          <span id="final-score">0</span><span id="final-max" class="subtle">/ 115</span>
+        </div>
+        <p id="replay-note" class="subtle replay hidden">You already played today — here's your result. Come back after midnight EST for a fresh challenge.</p>
+
+        <div id="breakdown" class="breakdown"></div>
+
+        <h3 class="share-title">Share your scorecard</h3>
+        <pre id="scorecard-preview" class="scorecard"></pre>
+        <div class="share-actions">
+          <button id="share-btn" class="primary">📲 Share</button>
+          <a id="sms-btn" class="btn-link" href="#">💬 Text it</a>
+          <button id="copy-btn" class="ghost">📋 Copy</button>
+        </div>
+        <p id="share-note" class="subtle hidden"></p>
+      </div>
+    </main>
+
+    <footer class="footer subtle">
+      New challenge daily at midnight Eastern · Same questions for everyone
+    </footer>
+  </div>
+
+  <!-- App scripts (plain globals, load order matters) -->
+  <script src="js/flags.js"></script>
+  <script src="js/questions.js"></script>
+  <script src="js/daily.js"></script>
+  <script src="js/scoring.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/mapq.js"></script>
+  <script src="js/share.js"></script>
+  <script src="js/game.js"></script>
+</body>
+</html>
