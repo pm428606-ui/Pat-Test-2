@@ -336,6 +336,34 @@ h3 { color: var(--ink); }
 }
 .bd-pts { font-weight: 700; font-variant-numeric: tabular-nums; color: var(--ink); }
 
+/* ---------- answer review ---------- */
+.reveal-btn { width: 100%; margin-bottom: 14px; }
+.answers-review {
+  text-align: left;
+  display: grid;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+.review-row {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 12px 14px;
+}
+.rv-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--ink-soft);
+  margin-bottom: 6px;
+}
+.rv-pts { font-variant-numeric: tabular-nums; color: var(--ink); }
+.rv-q { font-size: 0.95rem; color: var(--ink); margin-bottom: 4px; }
+.rv-a { font-size: 0.95rem; font-weight: 600; color: var(--good); }
+
 .share-title { margin: 8px 0 10px; }
 .scorecard {
   text-align: left;

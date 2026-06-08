@@ -392,6 +392,19 @@
 
     renderStats();
 
+    // "Show correct answers" review — collapsed by default each time.
+    const review = $("answers-review");
+    const reviewBtn = $("review-btn");
+    review.classList.add("hidden");
+    review.innerHTML = "";
+    reviewBtn.textContent = "👁 Show correct answers";
+    reviewBtn.onclick = () => {
+      const reveal = review.classList.contains("hidden");
+      if (reveal) renderReview();
+      review.classList.toggle("hidden", !reveal);
+      reviewBtn.textContent = reveal ? "🙈 Hide correct answers" : "👁 Show correct answers";
+    };
+
     // Scorecard always reflects the OFFICIAL result, so a practice run can't
     // be used to text friends an inflated score.
     const shareSrc = official || { total, grades: state.grades, timeMs: state.elapsedMs };
@@ -425,6 +438,56 @@
         $("share-note").textContent = "Select the text above and copy it.";
       }
     };
+  }
+
+  // Canonical correct answer for a question, derived from the question itself
+  // (so it shows whether or not the player got it right).
+  function correctAnswerText(q) {
+    switch (q.type) {
+      case "mc": return q.options[q.answer];
+      case "written": return q.display;
+      case "flag": return T.flagName(q.code);
+      case "map": return `${q.place}, ${q.country}`;
+      case "number": return `${Number(q.answer).toLocaleString()}${q.unit ? " " + q.unit : ""}`;
+      default: return "";
+    }
+  }
+
+  // Build the per-question answer review (prompt + correct answer + result).
+  function renderReview() {
+    const host = $("answers-review");
+    host.innerHTML = "";
+    state.questions.forEach((q, i) => {
+      const g = state.grades[i] || { points: 0, max: q.points };
+      const f = g.max > 0 ? g.points / g.max : 0;
+      const dot = f >= 0.999 ? "🟩" : f > 0 ? "🟨" : "🟥";
+
+      const row = document.createElement("div");
+      row.className = "review-row";
+
+      const head = document.createElement("div");
+      head.className = "rv-head";
+      const label = document.createElement("span");
+      label.textContent = `${dot} Q${q.slot} · ${q.category}`;
+      const pts = document.createElement("span");
+      pts.className = "rv-pts";
+      pts.textContent = `${g.points}/${q.points}`;
+      head.appendChild(label);
+      head.appendChild(pts);
+
+      const prompt = document.createElement("div");
+      prompt.className = "rv-q";
+      prompt.textContent = q.q;
+
+      const ans = document.createElement("div");
+      ans.className = "rv-a";
+      ans.textContent = `✅ ${correctAnswerText(q)}`;
+
+      row.appendChild(head);
+      row.appendChild(prompt);
+      row.appendChild(ans);
+      host.appendChild(row);
+    });
   }
 
   function renderStats() {
