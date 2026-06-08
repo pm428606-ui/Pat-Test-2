@@ -18,11 +18,15 @@
     map = L.map(containerId, {
       worldCopyJump: true,
       minZoom: 1,
-      maxZoom: 12
+      maxZoom: 8
     }).setView([20, 0], 2);
 
-    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-      attribution: "© OpenStreetMap contributors",
+    // Label-free basemap: shows coastlines, terrain and roads but NO place
+    // names, so players can't zoom in and simply read off the country/city.
+    L.tileLayer("https://{s}.basemaps.cartocdn.com/rastertiles/voyager_nolabels/{z}/{x}/{y}{r}.png", {
+      attribution: "© OpenStreetMap contributors © CARTO",
+      subdomains: "abcd",
+      maxZoom: 8,
       noWrap: false
     }).addTo(map);
 

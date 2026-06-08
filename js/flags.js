@@ -11,7 +11,9 @@
     br: "Brazil", ar: "Argentina", pt: "Portugal", co: "Colombia",
     it: "Italy", ie: "Ireland", mx: "Mexico", hu: "Hungary",
     tw: "Taiwan", mn: "Mongolia", gr: "Greece", fi: "Finland",
-    is: "Iceland", uy: "Uruguay", es: "Spain", nz: "New Zealand", fj: "Fiji"
+    is: "Iceland", uy: "Uruguay", es: "Spain", nz: "New Zealand", fj: "Fiji",
+    sk: "Slovakia", si: "Slovenia", hr: "Croatia", ru: "Russia",
+    td: "Chad", ro: "Romania", md: "Moldova", be: "Belgium"
   };
 
   T.flagName = function (code) {
