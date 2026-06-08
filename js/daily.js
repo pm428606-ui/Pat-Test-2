@@ -9,6 +9,12 @@
 (function (T) {
   "use strict";
 
+  // Bump EDITION to publish a fresh set of questions for the current day
+  // (and every day) without waiting for the date to roll over — e.g. after
+  // expanding the question bank. It folds into the daily seed, so the
+  // selection stays deterministic and identical for every player.
+  const EDITION = "2026-06-08.1";
+
   // Return the calendar date in America/New_York as a "YYYY-MM-DD" string.
   // Using Intl avoids manual DST math (EST/EDT handled for us).
   function easternDateString(now) {
@@ -73,7 +79,7 @@
   // Returns an array of fully-resolved question objects, each annotated with
   // slot, points, and a normalized `type`.
   function buildChallenge(dateStr) {
-    const rng = mulberry32(hashSeed("daily-trivia::" + dateStr));
+    const rng = mulberry32(hashSeed("daily-trivia::" + EDITION + "::" + dateStr));
     const B = T.BANK;
 
     const layout = [

@@ -47,6 +47,16 @@
     const name = $("name-input").value.trim();
     if (name) T.storage.setName(name);
     state.name = name;
+    beginGame();
+  }
+
+  // Restart today's challenge from scratch. Players can replay as many times
+  // as they like, even after they've already finished today's puzzle.
+  function playAgain() {
+    beginGame();
+  }
+
+  function beginGame() {
     state.idx = 0;
     state.grades = [];
     show("screen-game");
@@ -271,6 +281,7 @@
     $("final-headline").textContent = headline(total, max);
     $("results-date").textContent = formatDateLong(state.dateStr);
     $("replay-note").classList.toggle("hidden", !replay);
+    $("play-again-btn").onclick = playAgain;
 
     // per-question breakdown
     const list = $("breakdown");
