@@ -114,7 +114,8 @@
     if (inCountry) frac = Math.max(frac, COUNTRY_FLOOR);
 
     const points = Math.round(frac * q.points);
-    const distTxt = dist < 1 ? "<1 km" : `${Math.round(dist).toLocaleString()} km`;
+    const distMi = dist * 0.621371; // grading bands are km internally; show miles (US)
+    const distTxt = distMi < 1 ? "<1 mi" : `${Math.round(distMi).toLocaleString()} mi`;
     let detail = `You were ${distTxt} from ${q.place}.`;
     if (inCountry) detail += " ✅ Correct country bonus applied!";
     detail += ` (${points}/${q.points} pts)`;

@@ -163,20 +163,20 @@
 
     // ------------------------------------------------------- NUMBER (slot 10)
     number: [
-      { category: "Geography", q: "What is the height of Mount Everest, in meters above sea level?", answer: 8849, unit: "m" },
+      { category: "Geography", q: "What is the height of Mount Everest, in feet above sea level?", answer: 29032, unit: "ft" },
       { category: "History", q: "In what year was the Declaration of Independence signed?", answer: 1776, unit: "" },
-      { category: "General", q: "What is the speed of light in a vacuum, in kilometers per second?", answer: 299792, unit: "km/s" },
-      { category: "Geography", q: "Approximately how many kilometers long is the Great Wall of China (all branches)?", answer: 21196, unit: "km" },
+      { category: "General", q: "What is the speed of light in a vacuum, in miles per second?", answer: 186282, unit: "mi/s" },
+      { category: "Geography", q: "Approximately how many miles long is the Great Wall of China (all branches)?", answer: 13171, unit: "mi" },
       { category: "Sports", q: "How many dimples are on a standard regulation golf ball (a common figure)?", answer: 336, unit: "" },
-      { category: "General", q: "What is the average distance from the Earth to the Moon, in kilometers?", answer: 384400, unit: "km" },
+      { category: "General", q: "What is the average distance from the Earth to the Moon, in miles?", answer: 238855, unit: "mi" },
       { category: "History", q: "How many years did the Hundred Years' War actually last?", answer: 116, unit: "years" },
       { category: "Pop Culture", q: "What was the total worldwide box office of the film 'Titanic' (1997 original run + re-releases), in millions of USD (approx)?", answer: 2257, unit: "million USD" },
       { category: "Geography", q: "What is the population of Japan, in millions (approx, 2023)?", answer: 124, unit: "million" },
       { category: "General", q: "How many keys are on a standard piano?", answer: 88, unit: "" },
       { category: "Science", q: "How many elements are in the modern periodic table (as of 2024)?", answer: 118, unit: "" },
       { category: "Science", q: "At what temperature does water freeze, in degrees Fahrenheit?", answer: 32, unit: "°F" },
-      { category: "Geography", q: "What is the approximate surface area of the Pacific Ocean, in millions of square kilometers?", answer: 165, unit: "million km²" },
-      { category: "Geography", q: "Roughly how deep is the Mariana Trench at its lowest point, in meters?", answer: 10935, unit: "m" }
+      { category: "Geography", q: "What is the approximate surface area of the Pacific Ocean, in millions of square miles?", answer: 64, unit: "million mi²" },
+      { category: "Geography", q: "Roughly how deep is the Mariana Trench at its lowest point, in feet?", answer: 35876, unit: "ft" }
     ]
   };
 })(window.TRIVIA = window.TRIVIA || {});
