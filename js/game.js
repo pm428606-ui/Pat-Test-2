@@ -13,7 +13,8 @@
     idx: 0,
     response: null,    // pending response for the current question
     grades: [],        // grade per question
-    name: ""
+    name: "",
+    isPractice: false  // true once today's official run is already saved
   };
 
   // ---- bootstrap --------------------------------------------------------
@@ -29,7 +30,7 @@
     const prior = T.storage.getResult(state.dateStr);
     if (prior) {
       state.grades = prior.grades;
-      showResults(true);
+      showResults({ replay: true });
     } else {
       showStart();
     }
@@ -57,6 +58,8 @@
   }
 
   function beginGame() {
+    // If today's official result already exists, this is a practice run.
+    state.isPractice = !!T.storage.getResult(state.dateStr);
     state.idx = 0;
     state.grades = [];
     show("screen-game");
@@ -262,6 +265,11 @@
   // ---- finish / results -------------------------------------------------
   function finish() {
     const total = currentTotal();
+    if (state.isPractice) {
+      // Practice runs never overwrite the official result or the stats.
+      showResults({ practice: true });
+      return;
+    }
     T.storage.saveResult(state.dateStr, {
       name: state.name,
       total,
@@ -269,19 +277,35 @@
       finishedAt: new Date().toISOString()
     });
     T.storage.recordStats(state.dateStr, total);
-    showResults(false);
+    showResults({});
   }
 
-  function showResults(replay) {
+  function showResults(opts) {
+    opts = opts || {};
+    const practice = !!opts.practice; // a replay finished after the official run
+    const replay = !!opts.replay;     // viewing a prior official result (no new play)
     show("screen-results");
     const total = currentTotal();
     const max = maxTotal();
     $("final-score").textContent = `${total}`;
     $("final-max").textContent = `/ ${max}`;
-    $("final-headline").textContent = headline(total, max);
+    $("final-headline").textContent = (practice ? "🧪 Practice run · " : "") + headline(total, max);
     $("results-date").textContent = formatDateLong(state.dateStr);
-    $("replay-note").classList.toggle("hidden", !replay);
     $("play-again-btn").onclick = playAgain;
+
+    // The first finish of the day is the official, shareable result; later
+    // runs are practice and never replace it or the running stats.
+    const official = T.storage.getResult(state.dateStr);
+    const note = $("replay-note");
+    if (practice) {
+      const off = official ? `${official.total}/${max}` : `${total}/${max}`;
+      note.textContent = `Practice run — not counted. Your official score for today stays ${off}. Replay as often as you like.`;
+    } else if (replay) {
+      note.textContent = "You already played today — here's your official result. Hit Play Again for a practice run.";
+    } else {
+      note.textContent = "Official result saved! Hit Play Again any time for unlimited practice runs.";
+    }
+    note.classList.remove("hidden");
 
     // per-question breakdown
     const list = $("breakdown");
@@ -301,11 +325,13 @@
 
     renderStats();
 
-    // scorecard text + wiring
+    // Scorecard always reflects the OFFICIAL result, so a practice run can't
+    // be used to text friends an inflated score.
+    const shareSrc = official || { total, grades: state.grades };
     const url = gameUrl();
     const text = T.share.buildScorecardText({
-      name: state.name, dateStr: state.dateStr, total, max,
-      grades: state.questions.map((q, i) => state.grades[i] || { points: 0, max: q.points }),
+      name: state.name, dateStr: state.dateStr, total: shareSrc.total, max,
+      grades: state.questions.map((q, i) => (shareSrc.grades && shareSrc.grades[i]) || { points: 0, max: q.points }),
       url
     });
     $("scorecard-preview").textContent = text;
