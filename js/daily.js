@@ -13,7 +13,7 @@
   // (and every day) without waiting for the date to roll over — e.g. after
   // expanding the question bank. It folds into the daily seed, so the
   // selection stays deterministic and identical for every player.
-  const EDITION = "2026-06-08.1";
+  const EDITION = "2026-06-08.2";
 
   // Return the calendar date in America/New_York as a "YYYY-MM-DD" string.
   // Using Intl avoids manual DST math (EST/EDT handled for us).
@@ -95,8 +95,16 @@
       { pool: "number", type: "number", points: 25 }
     ];
 
+    // Enforce at most one flag question per round: once a flag is chosen,
+    // later visual slots draw only from the non-flag (map) questions.
+    let flagUsed = false;
+
     return layout.map((slot, i) => {
-      const chosen = pick(B[slot.pool], rng);
+      let poolItems = B[slot.pool];
+      if (slot.type === "visual" && flagUsed) {
+        poolItems = poolItems.filter((it) => it.type !== "flag");
+      }
+      const chosen = pick(poolItems, rng);
       const q = Object.assign({}, chosen);
       q.slot = i + 1;
       q.points = slot.points;
@@ -110,6 +118,7 @@
       } else if (chosen.type === "flag") {
         q.options = shuffleArray(chosen.options.slice(), rng);
         q.type = "flag";
+        flagUsed = true;
       } else if (chosen.type === "map") {
         q.type = "map";
       } else {

@@ -39,7 +39,10 @@
       { category: "Sports", q: "Which Grand Slam tennis tournament is played at the All England Club?", options: ["US Open", "Wimbledon", "French Open", "Australian Open"], answer: 1 },
       { category: "Geography", q: "What is the capital of Australia?", options: ["Sydney", "Melbourne", "Canberra", "Perth"], answer: 2 },
       { category: "History", q: "In what year did World War II end?", options: ["1943", "1945", "1947", "1950"], answer: 1 },
-      { category: "Science", q: "What is the largest planet in our solar system?", options: ["Saturn", "Jupiter", "Neptune", "Earth"], answer: 1 }
+      { category: "Science", q: "What is the largest planet in our solar system?", options: ["Saturn", "Jupiter", "Neptune", "Earth"], answer: 1 },
+      { category: "Pop Culture", q: "At the 2022 Academy Awards, which actor walked on stage and slapped Chris Rock?", options: ["Denzel Washington", "Will Smith", "Chris Tucker", "Jamie Foxx"], answer: 1 },
+      { category: "Movies", q: "Which two blockbusters defined the 'Barbenheimer' box-office weekend of July 2023?", options: ["Barbie & Oppenheimer", "Barbie & Avatar", "Wonka & Oppenheimer", "Barbie & Dune"], answer: 0 },
+      { category: "Sports", q: "Which team won the 2024 Super Bowl (LVIII)?", options: ["San Francisco 49ers", "Kansas City Chiefs", "Philadelphia Eagles", "Cincinnati Bengals"], answer: 1 }
     ],
     // -------------------------------------------------------------- MC medium
     mc2: [
@@ -56,7 +59,12 @@
       { category: "Pop Culture", q: "Who painted 'The Starry Night'?", options: ["Claude Monet", "Pablo Picasso", "Vincent van Gogh", "Salvador Dalí"], answer: 2 },
       { category: "History", q: "The Berlin Wall fell in which year?", options: ["1987", "1989", "1991", "1993"], answer: 1 },
       { category: "Geography", q: "The Danube flows through more countries than any other river. Which capital does NOT sit on it?", options: ["Vienna", "Budapest", "Belgrade", "Warsaw"], answer: 3 },
-      { category: "Literature", q: "Who wrote the tragedy 'Romeo and Juliet'?", options: ["Christopher Marlowe", "William Shakespeare", "Charles Dickens", "Oscar Wilde"], answer: 1 }
+      { category: "Literature", q: "Who wrote the tragedy 'Romeo and Juliet'?", options: ["Christopher Marlowe", "William Shakespeare", "Charles Dickens", "Oscar Wilde"], answer: 1 },
+      { category: "Music", q: "Which artist headlined the 2023 Super Bowl LVII halftime show?", options: ["Rihanna", "Beyoncé", "Lady Gaga", "The Weeknd"], answer: 0 },
+      { category: "Music", q: "Which artist headlined the 2024 Super Bowl LVIII halftime show?", options: ["Usher", "Justin Timberlake", "Bruno Mars", "Dr. Dre"], answer: 0 },
+      { category: "Movies", q: "Which film won the Academy Award for Best Picture at the 2024 Oscars?", options: ["Oppenheimer", "Barbie", "Poor Things", "Killers of the Flower Moon"], answer: 0 },
+      { category: "Sports", q: "Which country won the 2023 FIFA Women's World Cup?", options: ["England", "Spain", "Sweden", "Australia"], answer: 1 },
+      { category: "Pop Culture", q: "Whose 2023–24 'Eras Tour' became the first concert tour to gross over $1 billion?", options: ["Beyoncé", "Taylor Swift", "Adele", "Coldplay"], answer: 1 }
     ],
     // ---------------------------------------------------------------- MC hard
     mc3: [
@@ -81,7 +89,13 @@
       { category: "Movies", q: "Who composed the scores for 'Star Wars', 'Jaws', and 'Indiana Jones'?", options: ["Hans Zimmer", "John Williams", "Ennio Morricone", "Danny Elfman"], answer: 1 },
       { category: "Sports", q: "Which boxer defeated George Foreman in the 1974 'Rumble in the Jungle'?", options: ["Joe Frazier", "Muhammad Ali", "Sonny Liston", "Ken Norton"], answer: 1 },
       { category: "Sports", q: "Which country has won the most Summer Olympic gold medals all-time?", options: ["Soviet Union", "United States", "China", "Great Britain"], answer: 1 },
-      { category: "Pop Culture", q: "Which band's 1973 album 'The Dark Side of the Moon' spent over 900 weeks on the Billboard charts?", options: ["Led Zeppelin", "Pink Floyd", "The Eagles", "Fleetwood Mac"], answer: 1 }
+      { category: "Pop Culture", q: "Which band's 1973 album 'The Dark Side of the Moon' spent over 900 weeks on the Billboard charts?", options: ["Led Zeppelin", "Pink Floyd", "The Eagles", "Fleetwood Mac"], answer: 1 },
+      { category: "Movies", q: "Which film won Best Picture at the 2023 Oscars (for the 2022 film year)?", options: ["Everything Everywhere All at Once", "The Banshees of Inisherin", "Top Gun: Maverick", "All Quiet on the Western Front"], answer: 0 },
+      { category: "Sports", q: "Who was named MVP of Super Bowl LVI (2022)?", options: ["Cooper Kupp", "Aaron Donald", "Matthew Stafford", "Joe Burrow"], answer: 0 },
+      { category: "Sports", q: "Who was named MVP of Super Bowl LVII (2023)?", options: ["Jalen Hurts", "Patrick Mahomes", "Travis Kelce", "Nick Bolton"], answer: 1 },
+      { category: "Pop Culture", q: "Which actor has hosted 'Saturday Night Live' more times than anyone else?", options: ["Steve Martin", "Alec Baldwin", "Tom Hanks", "John Goodman"], answer: 1 },
+      { category: "Movies", q: "Who won the Academy Award for Best Actor in 2023 for 'The Whale'?", options: ["Brendan Fraser", "Austin Butler", "Colin Farrell", "Bill Nighy"], answer: 0 },
+      { category: "Music", q: "Which 1985 Kate Bush song returned to the top of the UK chart in 2022 after appearing in 'Stranger Things'?", options: ["Running Up That Hill", "Cloudbusting", "Wuthering Heights", "Babooshka"], answer: 0 }
     ],
 
     // ----------------------------------------------------------- WRITTEN easy
@@ -94,7 +108,9 @@
       { category: "Sports", q: "How many points is a touchdown worth in American football (the touchdown itself)?", accept: ["6", "six"], display: "6 points" },
       { category: "Geography", q: "What is the longest river in the world (by most measures)?", accept: ["nile", "the nile", "nile river"], display: "The Nile" },
       { category: "History", q: "Who was the British monarch (King) during most of World War II?", accept: ["george vi", "king george vi", "george the sixth"], display: "King George VI" },
-      { category: "Science", q: "What force pulls objects toward the center of the Earth?", accept: ["gravity"], display: "Gravity" }
+      { category: "Science", q: "What force pulls objects toward the center of the Earth?", accept: ["gravity"], display: "Gravity" },
+      { category: "Pop Culture", q: "At the 2022 Oscars, Will Smith slapped which comedian on stage?", accept: ["chris rock", "rock"], display: "Chris Rock" },
+      { category: "Movies", q: "What single-word nickname described the July 2023 same-day release of 'Barbie' and 'Oppenheimer'?", accept: ["barbenheimer"], display: "Barbenheimer" }
     ],
     // --------------------------------------------------------- WRITTEN medium
     written2: [
@@ -111,7 +127,9 @@
       { category: "Movies", q: "Which actor played Captain Jack Sparrow in 'Pirates of the Caribbean'?", accept: ["johnny depp", "depp"], display: "Johnny Depp" },
       { category: "Movies", q: "Which 1999 sci-fi film starring Keanu Reeves features a red pill and a blue pill?", accept: ["the matrix", "matrix"], display: "The Matrix" },
       { category: "Sports", q: "Which footballer has won a record eight Ballon d'Or awards (as of 2023)?", accept: ["messi", "lionel messi"], display: "Lionel Messi" },
-      { category: "Pop Culture", q: "Which long-running animated sitcom is set in Springfield with Homer and Bart?", accept: ["the simpsons", "simpsons"], display: "The Simpsons" }
+      { category: "Pop Culture", q: "Which long-running animated sitcom is set in Springfield with Homer and Bart?", accept: ["the simpsons", "simpsons"], display: "The Simpsons" },
+      { category: "Music", q: "Which superstar's record-breaking 'Eras Tour' concert film hit theaters in 2023?", accept: ["taylor swift", "taylor", "swift"], display: "Taylor Swift" },
+      { category: "Movies", q: "Which actress won the 2023 Best Actress Oscar for 'Everything Everywhere All at Once'?", accept: ["michelle yeoh", "yeoh"], display: "Michelle Yeoh" }
     ],
     // ----------------------------------------------------------- WRITTEN hard
     written3: [
@@ -129,7 +147,9 @@
       { category: "Geography", q: "What is the capital of Kazakhstan (its name was restored in 2022)?", accept: ["astana"], display: "Astana" },
       { category: "History", q: "Which Carthaginian general crossed the Alps with war elephants to attack Rome?", accept: ["hannibal", "hannibal barca"], display: "Hannibal" },
       { category: "Movies", q: "Which 1941 Orson Welles film, centered on the word 'Rosebud', is often called the greatest ever made?", accept: ["citizen kane"], display: "Citizen Kane" },
-      { category: "Pop Culture", q: "Which artist painted the Campbell's Soup Cans and pioneered Pop Art?", accept: ["warhol", "andy warhol"], display: "Andy Warhol" }
+      { category: "Pop Culture", q: "Which artist painted the Campbell's Soup Cans and pioneered Pop Art?", accept: ["warhol", "andy warhol"], display: "Andy Warhol" },
+      { category: "Movies", q: "Which Irish actor won the 2024 Best Actor Oscar for the title role in 'Oppenheimer'?", accept: ["cillian murphy", "murphy"], display: "Cillian Murphy" },
+      { category: "Music", q: "Which Lil Nas X song spent a record 19 weeks at #1 on the Billboard Hot 100 in 2019?", accept: ["old town road"], display: "Old Town Road" }
     ],
 
     // ----------------------------------------- VISUAL easy (flags + easy maps)
@@ -190,7 +210,11 @@
       { category: "Movies", q: "What was the worldwide box office of 'Avatar' (2009, including re-releases), in millions of USD?", answer: 2923, unit: "million USD" },
       { category: "Movies", q: "In what year was the first 'Star Wars' film released?", answer: 1977, unit: "" },
       { category: "Sports", q: "How many minutes long is a regulation NBA basketball game (four quarters)?", answer: 48, unit: "min" },
-      { category: "Sports", q: "How many players from one team are on the field during an American football play?", answer: 11, unit: "" }
+      { category: "Sports", q: "How many players from one team are on the field during an American football play?", answer: 11, unit: "" },
+      { category: "Pop Culture", q: "In what year did Will Smith slap Chris Rock at the Academy Awards?", answer: 2022, unit: "" },
+      { category: "Sports", q: "In what year was the first Super Bowl played?", answer: 1967, unit: "" },
+      { category: "Sports", q: "How many Super Bowl titles did quarterback Tom Brady win in his career?", answer: 7, unit: "" },
+      { category: "Music", q: "How many weeks did Lil Nas X's 'Old Town Road' spend at #1 on the Billboard Hot 100?", answer: 19, unit: "weeks" }
     ]
   };
 })(window.TRIVIA = window.TRIVIA || {});
