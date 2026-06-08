@@ -28,35 +28,35 @@
     // ---------------------------------------------------------------- MC easy
     mc1: [
       { category: "Pop Culture", q: "Which band released the 1991 album 'Nevermind'?", options: ["Pearl Jam", "Nirvana", "Soundgarden", "Alice in Chains"], answer: 1 },
+      { category: "Movies", q: "Who played the title role in the 1994 film 'Forrest Gump'?", options: ["Kevin Costner", "Tom Hanks", "Bill Murray", "Robin Williams"], answer: 1 },
+      { category: "Movies", q: "Who directed 'Jurassic Park' (1993) and 'E.T. the Extra-Terrestrial'?", options: ["George Lucas", "Steven Spielberg", "James Cameron", "Ridley Scott"], answer: 1 },
+      { category: "Movies", q: "Which 1994 film follows inmate Andy Dufresne at Shawshank prison?", options: ["The Green Mile", "The Shawshank Redemption", "Cool Hand Luke", "Goodfellas"], answer: 1 },
+      { category: "Sports", q: "Which country won the 2022 FIFA World Cup?", options: ["France", "Argentina", "Brazil", "Croatia"], answer: 1 },
+      { category: "Sports", q: "Which player became the NBA's all-time leading scorer in 2023?", options: ["Michael Jordan", "Kareem Abdul-Jabbar", "LeBron James", "Kobe Bryant"], answer: 2 },
+      { category: "Pop Culture", q: "Which Netflix series features a deadly Korean game and 'Red Light, Green Light'?", options: ["Alice in Borderland", "Squid Game", "Money Heist", "Hellbound"], answer: 1 },
+      { category: "Pop Culture", q: "Which artist released the best-selling 1982 album 'Thriller'?", options: ["Prince", "Michael Jackson", "Lionel Richie", "Stevie Wonder"], answer: 1 },
+      { category: "Music", q: "Which band recorded the 1975 rock epic 'Bohemian Rhapsody'?", options: ["Led Zeppelin", "The Rolling Stones", "Queen", "The Who"], answer: 2 },
+      { category: "Sports", q: "Which Grand Slam tennis tournament is played at the All England Club?", options: ["US Open", "Wimbledon", "French Open", "Australian Open"], answer: 1 },
       { category: "Geography", q: "What is the capital of Australia?", options: ["Sydney", "Melbourne", "Canberra", "Perth"], answer: 2 },
-      { category: "Sports", q: "How many players are on a standard soccer team on the field?", options: ["9", "10", "11", "12"], answer: 2 },
       { category: "History", q: "In what year did World War II end?", options: ["1943", "1945", "1947", "1950"], answer: 1 },
-      { category: "General", q: "What is the largest planet in our solar system?", options: ["Saturn", "Jupiter", "Neptune", "Earth"], answer: 1 },
-      { category: "Pop Culture", q: "Who played Forrest in the 1994 film 'Forrest Gump'?", options: ["Tom Hanks", "Kevin Costner", "Bill Murray", "Robin Williams"], answer: 0 },
-      { category: "Politics", q: "How many U.S. states are there?", options: ["48", "50", "52", "51"], answer: 1 },
-      { category: "General", q: "What is the chemical symbol for gold?", options: ["Gd", "Go", "Au", "Ag"], answer: 2 },
-      { category: "Sports", q: "Which sport is played at Wimbledon?", options: ["Golf", "Tennis", "Cricket", "Rugby"], answer: 1 },
-      { category: "History", q: "The Great Wall is located in which country?", options: ["Japan", "India", "China", "Mongolia"], answer: 2 },
-      { category: "Science", q: "What is H₂O more commonly known as?", options: ["Salt", "Water", "Hydrogen", "Bleach"], answer: 1 },
-      { category: "Music", q: "Which instrument typically has 88 keys?", options: ["Guitar", "Piano", "Violin", "Harp"], answer: 1 },
-      { category: "Nature", q: "What is the largest land animal on Earth?", options: ["African elephant", "Giraffe", "White rhino", "Hippopotamus"], answer: 0 }
+      { category: "Science", q: "What is the largest planet in our solar system?", options: ["Saturn", "Jupiter", "Neptune", "Earth"], answer: 1 }
     ],
     // -------------------------------------------------------------- MC medium
     mc2: [
       { category: "History", q: "Who was the first person to walk on the Moon?", options: ["Buzz Aldrin", "Yuri Gagarin", "Neil Armstrong", "John Glenn"], answer: 2 },
-      { category: "Pop Culture", q: "Which TV show features the fictional town of Hawkins, Indiana?", options: ["Riverdale", "Stranger Things", "Twin Peaks", "The OC"], answer: 1 },
+      { category: "Movies", q: "Which film became the first non-English-language movie to win the Oscar for Best Picture (2020)?", options: ["1917", "Roma", "Parasite", "Joker"], answer: 2 },
+      { category: "Movies", q: "Who plays Tony Stark / Iron Man across the Marvel Cinematic Universe?", options: ["Chris Evans", "Robert Downey Jr.", "Mark Ruffalo", "Chris Hemsworth"], answer: 1 },
+      { category: "Movies", q: "In which 1972 film does a character make 'an offer he can't refuse'?", options: ["Scarface", "Goodfellas", "The Godfather", "Casino"], answer: 2 },
+      { category: "Pop Culture", q: "Which TV show features the fictional town of Hawkins, Indiana?", options: ["Riverdale", "Stranger Things", "Twin Peaks", "The O.C."], answer: 1 },
+      { category: "Pop Culture", q: "Which singer launched a record-breaking solo career after leading Destiny's Child?", options: ["Rihanna", "Beyoncé", "Mariah Carey", "Alicia Keys"], answer: 1 },
+      { category: "Pop Culture", q: "On which fictional continent is most of HBO's 'Game of Thrones' set?", options: ["Essos", "Westeros", "Tamriel", "Middle-earth"], answer: 1 },
       { category: "Sports", q: "Which country has won the most FIFA World Cup titles (as of 2022)?", options: ["Germany", "Italy", "Argentina", "Brazil"], answer: 3 },
-      { category: "Geography", q: "The Danube River flows through more countries than any other in the world. Which city does NOT sit on it?", options: ["Vienna", "Budapest", "Belgrade", "Warsaw"], answer: 3 },
-      { category: "Politics", q: "Which document begins with the words 'We the People'?", options: ["Declaration of Independence", "U.S. Constitution", "Bill of Rights", "Gettysburg Address"], answer: 1 },
-      { category: "General", q: "How many bones are in the adult human body?", options: ["186", "206", "226", "246"], answer: 1 },
+      { category: "Sports", q: "Which Grand Slam tennis tournament is played on clay courts?", options: ["Wimbledon", "US Open", "French Open", "Australian Open"], answer: 2 },
+      { category: "Sports", q: "In golf, what is the term for one stroke under par on a hole?", options: ["Eagle", "Bogey", "Birdie", "Albatross"], answer: 2 },
       { category: "Pop Culture", q: "Who painted 'The Starry Night'?", options: ["Claude Monet", "Pablo Picasso", "Vincent van Gogh", "Salvador Dalí"], answer: 2 },
       { category: "History", q: "The Berlin Wall fell in which year?", options: ["1987", "1989", "1991", "1993"], answer: 1 },
-      { category: "Sports", q: "In golf, what is the term for one stroke under par on a hole?", options: ["Eagle", "Bogey", "Birdie", "Albatross"], answer: 2 },
-      { category: "Geography", q: "Mount Kilimanjaro is located in which country?", options: ["Kenya", "Tanzania", "Ethiopia", "Uganda"], answer: 1 },
-      { category: "Science", q: "Which scientist formulated the three laws of motion?", options: ["Albert Einstein", "Isaac Newton", "Galileo Galilei", "Nikola Tesla"], answer: 1 },
-      { category: "Literature", q: "Who wrote the tragedy 'Romeo and Juliet'?", options: ["Christopher Marlowe", "William Shakespeare", "Charles Dickens", "Oscar Wilde"], answer: 1 },
-      { category: "Food", q: "Sushi, as a dish, originated in which country?", options: ["China", "Thailand", "Japan", "South Korea"], answer: 2 },
-      { category: "Music", q: "Which musician was widely nicknamed the 'King of Pop'?", options: ["Elvis Presley", "Michael Jackson", "Prince", "Freddie Mercury"], answer: 1 }
+      { category: "Geography", q: "The Danube flows through more countries than any other river. Which capital does NOT sit on it?", options: ["Vienna", "Budapest", "Belgrade", "Warsaw"], answer: 3 },
+      { category: "Literature", q: "Who wrote the tragedy 'Romeo and Juliet'?", options: ["Christopher Marlowe", "William Shakespeare", "Charles Dickens", "Oscar Wilde"], answer: 1 }
     ],
     // ---------------------------------------------------------------- MC hard
     mc3: [
@@ -76,21 +76,25 @@
       { category: "Geography", q: "Which present-day African nation was historically known as Abyssinia?", options: ["Sudan", "Ethiopia", "Eritrea", "Somalia"], answer: 1 },
       { category: "Music", q: "Which composer wrote the 1913 ballet 'The Rite of Spring'?", options: ["Claude Debussy", "Igor Stravinsky", "Sergei Rachmaninoff", "Maurice Ravel"], answer: 1 },
       { category: "History", q: "The 1494 Treaty of Tordesillas divided the New World between which two powers?", options: ["England and France", "Spain and Portugal", "Spain and France", "Portugal and the Netherlands"], answer: 1 },
-      { category: "Sports", q: "Who became the first gymnast awarded a perfect 10 at the Olympic Games (1976)?", options: ["Olga Korbut", "Nadia Comăneci", "Mary Lou Retton", "Larisa Latynina"], answer: 1 }
+      { category: "Sports", q: "Who became the first gymnast awarded a perfect 10 at the Olympic Games (1976)?", options: ["Olga Korbut", "Nadia Comăneci", "Mary Lou Retton", "Larisa Latynina"], answer: 1 },
+      { category: "Movies", q: "Which director has won the most Academy Awards for Best Director (four wins)?", options: ["Steven Spielberg", "John Ford", "Martin Scorsese", "William Wyler"], answer: 1 },
+      { category: "Movies", q: "Who composed the scores for 'Star Wars', 'Jaws', and 'Indiana Jones'?", options: ["Hans Zimmer", "John Williams", "Ennio Morricone", "Danny Elfman"], answer: 1 },
+      { category: "Sports", q: "Which boxer defeated George Foreman in the 1974 'Rumble in the Jungle'?", options: ["Joe Frazier", "Muhammad Ali", "Sonny Liston", "Ken Norton"], answer: 1 },
+      { category: "Sports", q: "Which country has won the most Summer Olympic gold medals all-time?", options: ["Soviet Union", "United States", "China", "Great Britain"], answer: 1 },
+      { category: "Pop Culture", q: "Which band's 1973 album 'The Dark Side of the Moon' spent over 900 weeks on the Billboard charts?", options: ["Led Zeppelin", "Pink Floyd", "The Eagles", "Fleetwood Mac"], answer: 1 }
     ],
 
     // ----------------------------------------------------------- WRITTEN easy
     written1: [
-      { category: "Geography", q: "What is the capital city of France?", accept: ["paris"], display: "Paris" },
-      { category: "Sports", q: "In which sport would you perform a 'slam dunk'?", accept: ["basketball"], display: "Basketball" },
-      { category: "Pop Culture", q: "Which planet is known as the Red Planet?", accept: ["mars"], display: "Mars" },
-      { category: "History", q: "Who was the British monarch during most of World War II (King)?", accept: ["george vi", "king george vi", "george the sixth"], display: "King George VI" },
-      { category: "General", q: "What gas do plants primarily absorb from the air for photosynthesis?", accept: ["carbon dioxide", "co2"], display: "Carbon dioxide (CO₂)" },
-      { category: "Geography", q: "What is the longest river in the world (by most measures)?", accept: ["nile", "the nile", "nile river"], display: "The Nile" },
+      { category: "Movies", q: "Which 1997 James Cameron film featured Jack and Rose aboard a doomed ocean liner?", accept: ["titanic", "the titanic"], display: "Titanic" },
+      { category: "Movies", q: "What fictional African nation is the home of Marvel's Black Panther?", accept: ["wakanda"], display: "Wakanda" },
+      { category: "Pop Culture", q: "Which pop star is nicknamed the 'Material Girl'?", accept: ["madonna"], display: "Madonna" },
       { category: "Pop Culture", q: "What is the name of the coffee shop in the TV show 'Friends'?", accept: ["central perk"], display: "Central Perk" },
+      { category: "Sports", q: "Which sport uses the scoring terms 'love', 'deuce', and 'ace'?", accept: ["tennis"], display: "Tennis" },
       { category: "Sports", q: "How many points is a touchdown worth in American football (the touchdown itself)?", accept: ["6", "six"], display: "6 points" },
-      { category: "Science", q: "What force pulls objects toward the center of the Earth?", accept: ["gravity"], display: "Gravity" },
-      { category: "Nature", q: "What is the tallest animal in the world?", accept: ["giraffe", "the giraffe"], display: "The giraffe" }
+      { category: "Geography", q: "What is the longest river in the world (by most measures)?", accept: ["nile", "the nile", "nile river"], display: "The Nile" },
+      { category: "History", q: "Who was the British monarch (King) during most of World War II?", accept: ["george vi", "king george vi", "george the sixth"], display: "King George VI" },
+      { category: "Science", q: "What force pulls objects toward the center of the Earth?", accept: ["gravity"], display: "Gravity" }
     ],
     // --------------------------------------------------------- WRITTEN medium
     written2: [
@@ -103,7 +107,11 @@
       { category: "History", q: "In which Italian city would you find the ancient Colosseum?", accept: ["rome"], display: "Rome" },
       { category: "Pop Culture", q: "What was the name of the spaceship in the original 1979 film 'Alien'?", accept: ["nostromo", "the nostromo"], display: "Nostromo" },
       { category: "Music", q: "Which British band recorded the 1969 album 'Abbey Road'?", accept: ["the beatles", "beatles"], display: "The Beatles" },
-      { category: "Literature", q: "Which wizarding school does Harry Potter attend?", accept: ["hogwarts"], display: "Hogwarts" }
+      { category: "Literature", q: "Which wizarding school does Harry Potter attend?", accept: ["hogwarts"], display: "Hogwarts" },
+      { category: "Movies", q: "Which actor played Captain Jack Sparrow in 'Pirates of the Caribbean'?", accept: ["johnny depp", "depp"], display: "Johnny Depp" },
+      { category: "Movies", q: "Which 1999 sci-fi film starring Keanu Reeves features a red pill and a blue pill?", accept: ["the matrix", "matrix"], display: "The Matrix" },
+      { category: "Sports", q: "Which footballer has won a record eight Ballon d'Or awards (as of 2023)?", accept: ["messi", "lionel messi"], display: "Lionel Messi" },
+      { category: "Pop Culture", q: "Which long-running animated sitcom is set in Springfield with Homer and Bart?", accept: ["the simpsons", "simpsons"], display: "The Simpsons" }
     ],
     // ----------------------------------------------------------- WRITTEN hard
     written3: [
@@ -119,7 +127,9 @@
       { category: "Science", q: "Which chemist devised the periodic table and predicted then-undiscovered elements?", accept: ["mendeleev", "dmitri mendeleev"], display: "Dmitri Mendeleev" },
       { category: "Literature", q: "Who wrote the 14th-century epic poem 'The Divine Comedy'?", accept: ["dante", "dante alighieri"], display: "Dante Alighieri" },
       { category: "Geography", q: "What is the capital of Kazakhstan (its name was restored in 2022)?", accept: ["astana"], display: "Astana" },
-      { category: "History", q: "Which Carthaginian general crossed the Alps with war elephants to attack Rome?", accept: ["hannibal", "hannibal barca"], display: "Hannibal" }
+      { category: "History", q: "Which Carthaginian general crossed the Alps with war elephants to attack Rome?", accept: ["hannibal", "hannibal barca"], display: "Hannibal" },
+      { category: "Movies", q: "Which 1941 Orson Welles film, centered on the word 'Rosebud', is often called the greatest ever made?", accept: ["citizen kane"], display: "Citizen Kane" },
+      { category: "Pop Culture", q: "Which artist painted the Campbell's Soup Cans and pioneered Pop Art?", accept: ["warhol", "andy warhol"], display: "Andy Warhol" }
     ],
 
     // ----------------------------------------- VISUAL easy (flags + easy maps)
@@ -176,7 +186,11 @@
       { category: "Science", q: "How many elements are in the modern periodic table (as of 2024)?", answer: 118, unit: "" },
       { category: "Science", q: "At what temperature does water freeze, in degrees Fahrenheit?", answer: 32, unit: "°F" },
       { category: "Geography", q: "What is the approximate surface area of the Pacific Ocean, in millions of square miles?", answer: 64, unit: "million mi²" },
-      { category: "Geography", q: "Roughly how deep is the Mariana Trench at its lowest point, in feet?", answer: 35876, unit: "ft" }
+      { category: "Geography", q: "Roughly how deep is the Mariana Trench at its lowest point, in feet?", answer: 35876, unit: "ft" },
+      { category: "Movies", q: "What was the worldwide box office of 'Avatar' (2009, including re-releases), in millions of USD?", answer: 2923, unit: "million USD" },
+      { category: "Movies", q: "In what year was the first 'Star Wars' film released?", answer: 1977, unit: "" },
+      { category: "Sports", q: "How many minutes long is a regulation NBA basketball game (four quarters)?", answer: 48, unit: "min" },
+      { category: "Sports", q: "How many players from one team are on the field during an American football play?", answer: 11, unit: "" }
     ]
   };
 })(window.TRIVIA = window.TRIVIA || {});

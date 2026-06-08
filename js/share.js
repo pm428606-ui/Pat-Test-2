@@ -21,13 +21,15 @@
   }
 
   function buildScorecardText(opts) {
-    // opts: { name, dateStr, total, max, grades, url }
+    // opts: { name, dateStr, total, max, grades, url, time? }
     const tiles = opts.grades.map((g) => tile(g.points, g.max));
     const row1 = tiles.slice(0, 5).join("");
     const row2 = tiles.slice(5, 10).join("");
+    const scoreLine = `${opts.name ? opts.name + ": " : ""}${opts.total}/${opts.max} pts` +
+      (opts.time ? ` · ⏱ ${opts.time}` : "");
     const lines = [
       `🧠 Daily Trivia Challenge — ${opts.dateStr}`,
-      `${opts.name ? opts.name + ": " : ""}${opts.total}/${opts.max} pts`,
+      scoreLine,
       row1,
       row2,
       "",

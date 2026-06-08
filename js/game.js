@@ -14,7 +14,12 @@
     response: null,    // pending response for the current question
     grades: [],        // grade per question
     name: "",
-    isPractice: false  // true once today's official run is already saved
+    isPractice: false, // true once today's official run is already saved
+    locked: false,     // true while showing feedback / auto-advancing
+    startMs: 0,        // game start timestamp (for the play timer)
+    elapsedMs: 0,      // total play time, fixed at finish
+    advanceTimer: null,
+    timerInterval: null
   };
 
   // ---- bootstrap --------------------------------------------------------
@@ -62,8 +67,32 @@
     state.isPractice = !!T.storage.getResult(state.dateStr);
     state.idx = 0;
     state.grades = [];
+    state.locked = false;
+    startGameTimer();
     show("screen-game");
     renderQuestion();
+  }
+
+  // ---- play timer (informational only — never affects scoring) ----------
+  function startGameTimer() {
+    stopGameTimer();
+    state.startMs = Date.now();
+    state.elapsedMs = 0;
+    updateTimer();
+    state.timerInterval = setInterval(updateTimer, 250);
+  }
+  function stopGameTimer() {
+    if (state.timerInterval) clearInterval(state.timerInterval);
+    state.timerInterval = null;
+  }
+  function updateTimer() {
+    const el = $("game-timer");
+    if (el) el.textContent = `⏱ ${fmtClock(Date.now() - state.startMs)}`;
+  }
+  function fmtClock(ms) {
+    if (!isFinite(ms) || ms < 0) ms = 0;
+    const s = Math.round(ms / 1000);
+    return `${Math.floor(s / 60)}:${pad(s % 60)}`;
   }
 
   // ---- screen helpers ---------------------------------------------------
@@ -78,6 +107,8 @@
   // ---- question rendering ----------------------------------------------
   function renderQuestion() {
     T.mapq.teardown();
+    clearTimeout(state.advanceTimer);
+    state.locked = false;
     state.response = null;
     const q = state.questions[state.idx];
     const host = $("question-host");
@@ -108,16 +139,23 @@
       case "number": renderNumber(q, body); break;
     }
 
+    // MC and flag answers commit on tap (seamless, no button). Written,
+    // number and map answers need a Submit since there's nothing to "tap".
+    const needsSubmit = q.type === "written" || q.type === "number" || q.type === "map";
     const submit = $("submit-btn");
-    submit.textContent = state.idx === 9 ? "Finish & See Score" : "Submit Answer";
+    submit.classList.toggle("hidden", !needsSubmit);
+    submit.textContent = "Submit Answer";
     submit.disabled = true;
-    submit.onclick = onSubmit;
+    submit.onclick = commitAnswer;
 
-    $("feedback").classList.add("hidden");
-    $("feedback").textContent = "";
+    const fb = $("feedback");
+    fb.classList.add("hidden");
+    fb.classList.remove("tappable");
+    fb.onclick = null;
+    fb.textContent = "";
   }
 
-  function enableSubmit() { $("submit-btn").disabled = false; }
+  function enableSubmit() { if (!state.locked) $("submit-btn").disabled = false; }
 
   function renderMC(q, body) {
     q.options.forEach((opt, i) => {
@@ -126,10 +164,11 @@
       b.type = "button";
       b.textContent = opt;
       b.onclick = () => {
+        if (state.locked) return;
         body.querySelectorAll(".option").forEach((o) => o.classList.remove("selected"));
         b.classList.add("selected");
         state.response = i;
-        enableSubmit();
+        commitAnswer();
       };
       body.appendChild(b);
     });
@@ -146,7 +185,7 @@
       $("submit-btn").disabled = input.value.trim().length === 0;
     };
     input.onkeydown = (e) => {
-      if (e.key === "Enter" && input.value.trim()) onSubmit();
+      if (e.key === "Enter" && input.value.trim() && !state.locked) commitAnswer();
     };
     body.appendChild(input);
     setTimeout(() => input.focus(), 30);
@@ -169,10 +208,11 @@
       img.loading = "lazy";
       b.appendChild(img);
       b.onclick = () => {
+        if (state.locked) return;
         grid.querySelectorAll(".flag-option").forEach((o) => o.classList.remove("selected"));
         b.classList.add("selected");
         state.response = code;
-        enableSubmit();
+        commitAnswer();
       };
       grid.appendChild(b);
     });
@@ -188,7 +228,9 @@
     mapEl.id = "leaflet-map";
     mapEl.className = "map-host";
     body.appendChild(mapEl);
+    const myIdx = state.idx; // ignore late async (geocode) callbacks after advancing
     T.mapq.mount("leaflet-map", (resp) => {
+      if (state.locked || state.idx !== myIdx) return;
       state.response = resp;
       enableSubmit();
     });
@@ -206,7 +248,7 @@
       $("submit-btn").disabled = input.value.trim().length === 0;
     };
     input.onkeydown = (e) => {
-      if (e.key === "Enter" && input.value.trim()) onSubmit();
+      if (e.key === "Enter" && input.value.trim() && !state.locked) commitAnswer();
     };
     body.appendChild(input);
     setTimeout(() => input.focus(), 30);
@@ -217,22 +259,42 @@
   }
 
   // ---- submit / feedback ------------------------------------------------
-  function onSubmit() {
+  // Grade the current answer, show feedback, then auto-advance. The player
+  // can tap the feedback to continue immediately instead of waiting.
+  function commitAnswer() {
+    if (state.locked) return;
+    state.locked = true;
+    clearTimeout(state.advanceTimer);
+
     const q = state.questions[state.idx];
     const grade = T.scoring.grade(q, state.response);
     state.grades[state.idx] = grade;
 
-    if (q.type === "map") {
-      T.mapq.reveal(q, state.response);
-    }
+    if (q.type === "map") T.mapq.reveal(q, state.response);
 
     showFeedback(grade);
     $("running-score").textContent = `${currentTotal()} pts`;
+    setProgressBar((state.idx + 1) / 10);
+    $("submit-btn").classList.add("hidden");
 
-    const submit = $("submit-btn");
-    submit.disabled = false;
-    submit.textContent = state.idx === 9 ? "See Scorecard →" : "Next Question →";
-    submit.onclick = next;
+    // Tap-to-continue + a timed auto-advance so there's no "Next" button.
+    const fb = $("feedback");
+    fb.classList.add("tappable");
+    fb.onclick = advanceNow;
+    const delay = q.type === "map" ? 2800 : 1700;
+    state.advanceTimer = setTimeout(advanceNow, delay);
+  }
+
+  function advanceNow() {
+    if (!state.locked) return; // already advanced
+    clearTimeout(state.advanceTimer);
+    const fb = $("feedback");
+    fb.onclick = null;
+    fb.classList.remove("tappable");
+    state.locked = false;
+    if (state.idx === 9) { finish(); return; }
+    state.idx += 1;
+    renderQuestion();
   }
 
   function showFeedback(grade) {
@@ -240,19 +302,12 @@
     fb.classList.remove("hidden", "good", "bad", "partial");
     const f = grade.max > 0 ? grade.points / grade.max : 0;
     fb.classList.add(f >= 0.999 ? "good" : f > 0 ? "partial" : "bad");
-    fb.innerHTML = `<strong>+${grade.points} pts.</strong> ${grade.detail}`;
+    const cont = state.idx === 9 ? "see your scorecard" : "continue";
+    fb.innerHTML = `<strong>+${grade.points} pts.</strong> ${grade.detail}` +
+      ` <span class="fb-cont">tap to ${cont} →</span>`;
     // lock inputs
     document.querySelectorAll(".option, .flag-option").forEach((b) => (b.disabled = true));
     document.querySelectorAll(".text-answer").forEach((b) => (b.disabled = true));
-  }
-
-  function next() {
-    if (state.idx === 9) {
-      finish();
-      return;
-    }
-    state.idx += 1;
-    renderQuestion();
   }
 
   function currentTotal() {
@@ -264,20 +319,23 @@
 
   // ---- finish / results -------------------------------------------------
   function finish() {
+    stopGameTimer();
+    state.elapsedMs = Date.now() - state.startMs;
     const total = currentTotal();
     if (state.isPractice) {
       // Practice runs never overwrite the official result or the stats.
-      showResults({ practice: true });
+      showResults({ practice: true, timeMs: state.elapsedMs });
       return;
     }
     T.storage.saveResult(state.dateStr, {
       name: state.name,
       total,
       grades: state.grades,
+      timeMs: state.elapsedMs,
       finishedAt: new Date().toISOString()
     });
     T.storage.recordStats(state.dateStr, total);
-    showResults({});
+    showResults({ timeMs: state.elapsedMs });
   }
 
   function showResults(opts) {
@@ -296,6 +354,15 @@
     // The first finish of the day is the official, shareable result; later
     // runs are practice and never replace it or the running stats.
     const official = T.storage.getResult(state.dateStr);
+
+    // Play time — informational only. Show the time for the run on screen.
+    const shownTimeMs = (opts.timeMs != null) ? opts.timeMs : (official && official.timeMs);
+    const timeEl = $("results-time");
+    if (timeEl) {
+      timeEl.textContent = shownTimeMs != null ? `⏱ Finished in ${fmtClock(shownTimeMs)}` : "";
+      timeEl.classList.toggle("hidden", shownTimeMs == null);
+    }
+
     const note = $("replay-note");
     if (practice) {
       const off = official ? `${official.total}/${max}` : `${total}/${max}`;
@@ -327,11 +394,12 @@
 
     // Scorecard always reflects the OFFICIAL result, so a practice run can't
     // be used to text friends an inflated score.
-    const shareSrc = official || { total, grades: state.grades };
+    const shareSrc = official || { total, grades: state.grades, timeMs: state.elapsedMs };
     const url = gameUrl();
     const text = T.share.buildScorecardText({
       name: state.name, dateStr: state.dateStr, total: shareSrc.total, max,
       grades: state.questions.map((q, i) => (shareSrc.grades && shareSrc.grades[i]) || { points: 0, max: q.points }),
+      time: shareSrc.timeMs != null ? fmtClock(shareSrc.timeMs) : null,
       url
     });
     $("scorecard-preview").textContent = text;
