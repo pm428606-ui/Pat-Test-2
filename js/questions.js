@@ -194,7 +194,7 @@
     // ------------------------------------------------------- NUMBER (slot 10)
     number: [
       { category: "Geography", q: "What is the height of Mount Everest, in feet above sea level?", answer: 29032, unit: "ft" },
-      { category: "History", q: "In what year was the Declaration of Independence signed?", answer: 1776, unit: "" },
+      { category: "History", q: "In what year was the Declaration of Independence signed?", answer: 1776, unit: "", tolAbs: 25 },
       { category: "General", q: "What is the speed of light in a vacuum, in miles per second?", answer: 186282, unit: "mi/s" },
       { category: "Geography", q: "Approximately how many miles long is the Great Wall of China (all branches)?", answer: 13171, unit: "mi" },
       { category: "Sports", q: "How many dimples are on a standard regulation golf ball (a common figure)?", answer: 336, unit: "" },
@@ -208,11 +208,11 @@
       { category: "Geography", q: "What is the approximate surface area of the Pacific Ocean, in millions of square miles?", answer: 64, unit: "million mi²" },
       { category: "Geography", q: "Roughly how deep is the Mariana Trench at its lowest point, in feet?", answer: 35876, unit: "ft" },
       { category: "Movies", q: "What was the worldwide box office of 'Avatar' (2009, including re-releases), in millions of USD?", answer: 2923, unit: "million USD" },
-      { category: "Movies", q: "In what year was the first 'Star Wars' film released?", answer: 1977, unit: "" },
+      { category: "Movies", q: "In what year was the first 'Star Wars' film released?", answer: 1977, unit: "", tolAbs: 25 },
       { category: "Sports", q: "How many minutes long is a regulation NBA basketball game (four quarters)?", answer: 48, unit: "min" },
       { category: "Sports", q: "How many players from one team are on the field during an American football play?", answer: 11, unit: "" },
-      { category: "Pop Culture", q: "In what year did Will Smith slap Chris Rock at the Academy Awards?", answer: 2022, unit: "" },
-      { category: "Sports", q: "In what year was the first Super Bowl played?", answer: 1967, unit: "" },
+      { category: "Pop Culture", q: "In what year did Will Smith slap Chris Rock at the Academy Awards?", answer: 2022, unit: "", tolAbs: 15 },
+      { category: "Sports", q: "In what year was the first Super Bowl played?", answer: 1967, unit: "", tolAbs: 25 },
       { category: "Sports", q: "How many Super Bowl titles did quarterback Tom Brady win in his career?", answer: 7, unit: "" },
       { category: "Music", q: "How many weeks did Lil Nas X's 'Old Town Road' spend at #1 on the Billboard Hot 100?", answer: 19, unit: "weeks" }
     ]

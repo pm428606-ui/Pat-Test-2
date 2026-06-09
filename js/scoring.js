@@ -90,14 +90,14 @@
     };
   }
 
-  // Map question: partial credit by distance, with a country bonus.
+  // Map question: partial credit by distance, with a small country bonus.
   //   - Full points within FULL_KM.
   //   - Linear decay to 0 at ZERO_KM.
-  //   - If you land in the right country, you get at least COUNTRY_FLOOR of
-  //     the max even if the city pin is far (the "right country" bonus).
+  //   - Landing in the right country adds a flat +10% of the slot's points
+  //     on top of the distance score (capped at full points).
   const MAP_FULL_KM = 50;
   const MAP_ZERO_KM = 2500;
-  const COUNTRY_FLOOR = 0.4;
+  const COUNTRY_BONUS = 0.10;
 
   function gradeMap(q, response) {
     if (!response || typeof response.lat !== "number") {
@@ -111,38 +111,50 @@
 
     const inCountry = response.country && q.country &&
       response.country.toLowerCase() === q.country.toLowerCase();
-    if (inCountry) frac = Math.max(frac, COUNTRY_FLOOR);
 
-    const points = Math.round(frac * q.points);
+    let raw = frac * q.points;
+    if (inCountry) raw = Math.min(q.points, raw + COUNTRY_BONUS * q.points);
+
+    const points = Math.round(raw);
     const distMi = dist * 0.621371; // grading bands are km internally; show miles (US)
     const distTxt = distMi < 1 ? "<1 mi" : `${Math.round(distMi).toLocaleString()} mi`;
     let detail = `You were ${distTxt} from ${q.place}.`;
-    if (inCountry) detail += " ✅ Correct country bonus applied!";
+    if (inCountry) detail += ` ✅ +${Math.round(COUNTRY_BONUS * 100)}% right-country bonus.`;
     detail += ` (${points}/${q.points} pts)`;
     return { points, max: q.points, correct: dist <= MAP_FULL_KM, detail, distanceKm: dist, inCountry };
   }
 
-  // Number estimate: partial credit by percentage error, over or under.
-  //   error% = |guess - answer| / answer
-  //   0% error  -> full points
-  //   >= 50% err -> 0 points  (linear in between)
-  const NUMBER_ZERO_ERROR = 0.5;
+  // Number estimate: partial credit by closeness.
+  //   - Year-type and other large-offset answers use an ABSOLUTE tolerance
+  //     (set q.tolAbs): full credit at 0 error, linear to 0 at tolAbs. This
+  //     stops a 4% miss on a year (e.g. 1776 -> 1850) scoring nearly full.
+  //   - Everything else uses relative error with a stricter zero point
+  //     (q.tol, default 0.25 — a guess 25%+ off earns nothing).
+  const NUMBER_ZERO_ERROR = 0.25;
 
   function gradeNumber(q, response) {
     const guess = parseFloat(String(response).replace(/[, ]/g, ""));
     if (!isFinite(guess)) {
       return { points: 0, max: q.points, correct: false, detail: `No valid number entered. Answer: ${fmtNum(q.answer)} ${q.unit}`.trim() };
     }
-    const err = Math.abs(guess - q.answer) / Math.abs(q.answer);
-    let frac;
-    if (err === 0) frac = 1;
-    else if (err >= NUMBER_ZERO_ERROR) frac = 0;
-    else frac = 1 - err / NUMBER_ZERO_ERROR;
+    const absErr = Math.abs(guess - q.answer);
+    let frac, offText, exact;
+    if (q.tolAbs != null) {
+      // absolute-tolerance scoring (years, etc.)
+      frac = absErr >= q.tolAbs ? 0 : 1 - absErr / q.tolAbs;
+      offText = `off by ${fmtNum(Math.round(absErr))}`;
+      exact = absErr < 0.5;
+    } else {
+      const rel = absErr / Math.abs(q.answer);
+      const zero = q.tol != null ? q.tol : NUMBER_ZERO_ERROR;
+      frac = rel >= zero ? 0 : 1 - rel / zero;
+      offText = `${(rel * 100).toFixed(1)}% off`;
+      exact = rel < 0.001;
+    }
     const points = Math.round(frac * q.points);
-    const pct = (err * 100).toFixed(1);
     const detail = `Answer: ${fmtNum(q.answer)} ${q.unit}`.trim() +
-      ` · You were ${pct}% off (${points}/${q.points} pts)`;
-    return { points, max: q.points, correct: err < 0.001, detail };
+      ` · You were ${offText} (${points}/${q.points} pts)`;
+    return { points, max: q.points, correct: exact, detail };
   }
 
   function fmtNum(n) {
