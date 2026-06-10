@@ -28,18 +28,17 @@
     // ---------------------------------------------------------------- MC easy
     mc1: [
       { category: "Pop Culture", q: "Which band released the 1991 album 'Nevermind'?", options: ["Pearl Jam", "Nirvana", "Soundgarden", "Alice in Chains"], answer: 1 },
-      { category: "Movies", q: "Who played the title role in the 1994 film 'Forrest Gump'?", options: ["Kevin Costner", "Tom Hanks", "Bill Murray", "Robin Williams"], answer: 1 },
       { category: "Movies", q: "Who directed 'Jurassic Park' (1993) and 'E.T. the Extra-Terrestrial'?", options: ["George Lucas", "Steven Spielberg", "James Cameron", "Ridley Scott"], answer: 1 },
       { category: "Movies", q: "Which 1994 film follows inmate Andy Dufresne at Shawshank prison?", options: ["The Green Mile", "The Shawshank Redemption", "Cool Hand Luke", "Goodfellas"], answer: 1 },
+      { category: "Movies", q: "Who directed the sci-fi films 'Inception' (2010) and 'Interstellar' (2014)?", options: ["Denis Villeneuve", "Christopher Nolan", "Ridley Scott", "James Cameron"], answer: 1 },
       { category: "Sports", q: "Which country won the 2022 FIFA World Cup?", options: ["France", "Argentina", "Brazil", "Croatia"], answer: 1 },
       { category: "Sports", q: "Which player became the NBA's all-time leading scorer in 2023?", options: ["Michael Jordan", "Kareem Abdul-Jabbar", "LeBron James", "Kobe Bryant"], answer: 2 },
       { category: "Pop Culture", q: "Which Netflix series features a deadly Korean game and 'Red Light, Green Light'?", options: ["Alice in Borderland", "Squid Game", "Money Heist", "Hellbound"], answer: 1 },
       { category: "Pop Culture", q: "Which artist released the best-selling 1982 album 'Thriller'?", options: ["Prince", "Michael Jackson", "Lionel Richie", "Stevie Wonder"], answer: 1 },
       { category: "Music", q: "Which band recorded the 1975 rock epic 'Bohemian Rhapsody'?", options: ["Led Zeppelin", "The Rolling Stones", "Queen", "The Who"], answer: 2 },
-      { category: "Sports", q: "Which Grand Slam tennis tournament is played at the All England Club?", options: ["US Open", "Wimbledon", "French Open", "Australian Open"], answer: 1 },
+      { category: "Music", q: "Which band released the acclaimed 1997 album 'OK Computer'?", options: ["Oasis", "Blur", "Radiohead", "Coldplay"], answer: 2 },
       { category: "Geography", q: "What is the capital of Australia?", options: ["Sydney", "Melbourne", "Canberra", "Perth"], answer: 2 },
-      { category: "History", q: "In what year did World War II end?", options: ["1943", "1945", "1947", "1950"], answer: 1 },
-      { category: "Science", q: "What is the largest planet in our solar system?", options: ["Saturn", "Jupiter", "Neptune", "Earth"], answer: 1 },
+      { category: "Geography", q: "The Strait of Gibraltar separates Spain from which country?", options: ["Algeria", "Morocco", "Tunisia", "Portugal"], answer: 1 },
       { category: "Pop Culture", q: "At the 2022 Academy Awards, which actor walked on stage and slapped Chris Rock?", options: ["Denzel Washington", "Will Smith", "Chris Tucker", "Jamie Foxx"], answer: 1 },
       { category: "Movies", q: "Which two blockbusters defined the 'Barbenheimer' box-office weekend of July 2023?", options: ["Barbie & Oppenheimer", "Barbie & Avatar", "Wonka & Oppenheimer", "Barbie & Dune"], answer: 0 },
       { category: "Sports", q: "Which team won the 2024 Super Bowl (LVIII)?", options: ["San Francisco 49ers", "Kansas City Chiefs", "Philadelphia Eagles", "Cincinnati Bengals"], answer: 1 }
@@ -55,15 +54,17 @@
       { category: "Pop Culture", q: "On which fictional continent is most of HBO's 'Game of Thrones' set?", options: ["Essos", "Westeros", "Tamriel", "Middle-earth"], answer: 1 },
       { category: "Sports", q: "Which country has won the most FIFA World Cup titles (as of 2022)?", options: ["Germany", "Italy", "Argentina", "Brazil"], answer: 3 },
       { category: "Sports", q: "Which Grand Slam tennis tournament is played on clay courts?", options: ["Wimbledon", "US Open", "French Open", "Australian Open"], answer: 2 },
-      { category: "Sports", q: "In golf, what is the term for one stroke under par on a hole?", options: ["Eagle", "Bogey", "Birdie", "Albatross"], answer: 2 },
+      { category: "Sports", q: "Which driver holds the record for most career Formula 1 race wins (as of 2024)?", options: ["Michael Schumacher", "Lewis Hamilton", "Max Verstappen", "Sebastian Vettel"], answer: 1 },
+      { category: "Sports", q: "Which franchise has won the most NBA championships (as of 2024)?", options: ["Los Angeles Lakers", "Boston Celtics", "Chicago Bulls", "Golden State Warriors"], answer: 1 },
       { category: "Pop Culture", q: "Who painted 'The Starry Night'?", options: ["Claude Monet", "Pablo Picasso", "Vincent van Gogh", "Salvador Dalí"], answer: 2 },
+      { category: "Literature", q: "Who wrote the novel 'One Hundred Years of Solitude'?", options: ["Jorge Luis Borges", "Gabriel García Márquez", "Mario Vargas Llosa", "Pablo Neruda"], answer: 1 },
       { category: "History", q: "The Berlin Wall fell in which year?", options: ["1987", "1989", "1991", "1993"], answer: 1 },
       { category: "Geography", q: "The Danube flows through more countries than any other river. Which capital does NOT sit on it?", options: ["Vienna", "Budapest", "Belgrade", "Warsaw"], answer: 3 },
-      { category: "Literature", q: "Who wrote the tragedy 'Romeo and Juliet'?", options: ["Christopher Marlowe", "William Shakespeare", "Charles Dickens", "Oscar Wilde"], answer: 1 },
       { category: "Music", q: "Which artist headlined the 2023 Super Bowl LVII halftime show?", options: ["Rihanna", "Beyoncé", "Lady Gaga", "The Weeknd"], answer: 0 },
       { category: "Music", q: "Which artist headlined the 2024 Super Bowl LVIII halftime show?", options: ["Usher", "Justin Timberlake", "Bruno Mars", "Dr. Dre"], answer: 0 },
       { category: "Movies", q: "Which film won the Academy Award for Best Picture at the 2024 Oscars?", options: ["Oppenheimer", "Barbie", "Poor Things", "Killers of the Flower Moon"], answer: 0 },
       { category: "Sports", q: "Which country won the 2023 FIFA Women's World Cup?", options: ["England", "Spain", "Sweden", "Australia"], answer: 1 },
+      { category: "Sports", q: "Who holds the record for most Grand Slam singles titles in the Open Era of women's tennis (23)?", options: ["Steffi Graf", "Serena Williams", "Martina Navratilova", "Chris Evert"], answer: 1 },
       { category: "Pop Culture", q: "Whose 2023–24 'Eras Tour' became the first concert tour to gross over $1 billion?", options: ["Beyoncé", "Taylor Swift", "Adele", "Coldplay"], answer: 1 }
     ],
     // ---------------------------------------------------------------- MC hard
@@ -95,7 +96,13 @@
       { category: "Sports", q: "Who was named MVP of Super Bowl LVII (2023)?", options: ["Jalen Hurts", "Patrick Mahomes", "Travis Kelce", "Nick Bolton"], answer: 1 },
       { category: "Pop Culture", q: "Which actor has hosted 'Saturday Night Live' more times than anyone else?", options: ["Steve Martin", "Alec Baldwin", "Tom Hanks", "John Goodman"], answer: 1 },
       { category: "Movies", q: "Who won the Academy Award for Best Actor in 2023 for 'The Whale'?", options: ["Brendan Fraser", "Austin Butler", "Colin Farrell", "Bill Nighy"], answer: 0 },
-      { category: "Music", q: "Which 1985 Kate Bush song returned to the top of the UK chart in 2022 after appearing in 'Stranger Things'?", options: ["Running Up That Hill", "Cloudbusting", "Wuthering Heights", "Babooshka"], answer: 0 }
+      { category: "Music", q: "Which 1985 Kate Bush song returned to the top of the UK chart in 2022 after appearing in 'Stranger Things'?", options: ["Running Up That Hill", "Cloudbusting", "Wuthering Heights", "Babooshka"], answer: 0 },
+      { category: "Movies", q: "Which actor holds the record for most Best Actor Academy Award wins (three)?", options: ["Jack Nicholson", "Daniel Day-Lewis", "Marlon Brando", "Tom Hanks"], answer: 1 },
+      { category: "Movies", q: "Who wrote and directed the 2017 horror film 'Get Out'?", options: ["Jordan Peele", "Spike Lee", "Ryan Coogler", "Barry Jenkins"], answer: 0 },
+      { category: "History", q: "Who is traditionally regarded as the first Roman emperor?", options: ["Julius Caesar", "Augustus", "Nero", "Constantine"], answer: 1 },
+      { category: "History", q: "In which year was the Magna Carta sealed?", options: ["1066", "1215", "1348", "1492"], answer: 1 },
+      { category: "Science", q: "Which planet has the most known moons (as of 2024)?", options: ["Jupiter", "Saturn", "Uranus", "Neptune"], answer: 1 },
+      { category: "Science", q: "Which chemical element has the atomic number 79?", options: ["Silver", "Gold", "Platinum", "Mercury"], answer: 1 }
     ],
 
     // ----------------------------------------------------------- WRITTEN easy
@@ -152,43 +159,54 @@
       { category: "Music", q: "Which Lil Nas X song spent a record 19 weeks at #1 on the Billboard Hot 100 in 2019?", accept: ["old town road"], display: "Old Town Road" }
     ],
 
-    // ----------------------------------------- VISUAL easy (flags + easy maps)
+    // ------------------------------ VISUAL easy (flags + image landmark maps)
+    // Image-map questions show a photo of a famous landmark (fetched from
+    // Wikipedia by article title) and ask the player to place it on the map.
     visual1: [
       { category: "Flags", type: "flag", q: "Select the flag of Japan.", code: "jp", options: ["jp", "kr", "cn", "th"] },
       { category: "Flags", type: "flag", q: "Select the flag of Canada.", code: "ca", options: ["ca", "us", "gb", "au"] },
       { category: "Flags", type: "flag", q: "Select the flag of Brazil.", code: "br", options: ["br", "ar", "pt", "co"] },
       { category: "Flags", type: "flag", q: "Select the flag of Italy.", code: "it", options: ["it", "ie", "mx", "hu"] },
-      { category: "Maps", type: "map", q: "Click on the approximate location of London, United Kingdom.", lat: 51.5074, lng: -0.1278, country: "United Kingdom", place: "London" },
-      { category: "Maps", type: "map", q: "Click on the approximate location of New York City, USA.", lat: 40.7128, lng: -74.006, country: "United States", place: "New York City" },
-      { category: "Maps", type: "map", q: "Click on the approximate location of Paris, France.", lat: 48.8566, lng: 2.3522, country: "France", place: "Paris" },
-      { category: "Maps", type: "map", q: "Click on the approximate location of Cairo, Egypt.", lat: 30.0444, lng: 31.2357, country: "Egypt", place: "Cairo" }
+      { category: "Landmarks", type: "map", q: "Where in the world is this landmark?", wiki: "Eiffel_Tower", lat: 48.8584, lng: 2.2945, country: "France", place: "the Eiffel Tower (Paris)" },
+      { category: "Landmarks", type: "map", q: "Where in the world is this landmark?", wiki: "Colosseum", lat: 41.8902, lng: 12.4922, country: "Italy", place: "the Colosseum (Rome)" },
+      { category: "Landmarks", type: "map", q: "Where in the world is this landmark?", wiki: "Taj_Mahal", lat: 27.1751, lng: 78.0421, country: "India", place: "the Taj Mahal (Agra)" },
+      { category: "Landmarks", type: "map", q: "Where in the world is this landmark?", wiki: "Statue_of_Liberty", lat: 40.6892, lng: -74.0445, country: "United States", place: "the Statue of Liberty (New York)" },
+      { category: "Landmarks", type: "map", q: "Where in the world is this landmark?", wiki: "Christ_the_Redeemer_(statue)", lat: -22.9519, lng: -43.2105, country: "Brazil", place: "Christ the Redeemer (Rio de Janeiro)" },
+      { category: "Landmarks", type: "map", q: "Where in the world is this landmark?", wiki: "Sydney_Opera_House", lat: -33.8568, lng: 151.2153, country: "Australia", place: "the Sydney Opera House" },
+      { category: "Landmarks", type: "map", q: "Where in the world is this landmark?", wiki: "Great_Pyramid_of_Giza", lat: 29.9792, lng: 31.1342, country: "Egypt", place: "the Pyramids of Giza (Cairo)" },
+      { category: "Landmarks", type: "map", q: "Where in the world is this landmark?", wiki: "Machu_Picchu", lat: -13.1631, lng: -72.5450, country: "Peru", place: "Machu Picchu" },
+      { category: "Landmarks", type: "map", q: "Where in the world is this landmark?", wiki: "Big_Ben", lat: 51.5007, lng: -0.1246, country: "United Kingdom", place: "Big Ben (London)" },
+      { category: "Landmarks", type: "map", q: "Where in the world is this landmark?", wiki: "Petra", lat: 30.3285, lng: 35.4444, country: "Jordan", place: "Petra" }
     ],
-    // --------------------------------------- VISUAL medium (flags + med maps)
+    // --------------------------------- VISUAL medium (flags + tougher cities)
     visual2: [
       { category: "Flags", type: "flag", q: "Select the flag of South Korea.", code: "kr", options: ["kr", "jp", "tw", "mn"] },
       { category: "Flags", type: "flag", q: "Select the flag of Greece.", code: "gr", options: ["gr", "fi", "is", "uy"] },
       { category: "Flags", type: "flag", q: "Select the flag of Mexico.", code: "mx", options: ["mx", "it", "ie", "hu"] },
-      { category: "Maps", type: "map", q: "Click on the approximate location of Cape Town, South Africa.", lat: -33.9249, lng: 18.4241, country: "South Africa", place: "Cape Town" },
-      { category: "Maps", type: "map", q: "Click on the approximate location of Rio de Janeiro, Brazil.", lat: -22.9068, lng: -43.1729, country: "Brazil", place: "Rio de Janeiro" },
-      { category: "Maps", type: "map", q: "Click on the approximate location of Istanbul, Turkey.", lat: 41.0082, lng: 28.9784, country: "Turkey", place: "Istanbul" },
-      { category: "Maps", type: "map", q: "Click on the approximate location of Sydney, Australia.", lat: -33.8688, lng: 151.2093, country: "Australia", place: "Sydney" },
-      { category: "Flags", type: "flag", q: "Select the flag of Argentina.", code: "ar", options: ["ar", "uy", "br", "co"] }
+      { category: "Flags", type: "flag", q: "Select the flag of Argentina.", code: "ar", options: ["ar", "uy", "br", "co"] },
+      { category: "Maps", type: "map", q: "Click on the approximate location of Casablanca, Morocco.", lat: 33.5731, lng: -7.5898, country: "Morocco", place: "Casablanca" },
+      { category: "Maps", type: "map", q: "Click on the approximate location of Hanoi, Vietnam.", lat: 21.0278, lng: 105.8342, country: "Vietnam", place: "Hanoi" },
+      { category: "Maps", type: "map", q: "Click on the approximate location of Lima, Peru.", lat: -12.0464, lng: -77.0428, country: "Peru", place: "Lima" },
+      { category: "Maps", type: "map", q: "Click on the approximate location of Nairobi, Kenya.", lat: -1.2921, lng: 36.8219, country: "Kenya", place: "Nairobi" },
+      { category: "Maps", type: "map", q: "Click on the approximate location of Bogotá, Colombia.", lat: 4.7110, lng: -74.0721, country: "Colombia", place: "Bogotá" },
+      { category: "Maps", type: "map", q: "Click on the approximate location of Kuala Lumpur, Malaysia.", lat: 3.1390, lng: 101.6869, country: "Malaysia", place: "Kuala Lumpur" }
     ],
-    // ----------------------------------------- VISUAL hard (flags + hard maps)
+    // ------------------------------ VISUAL hard (flags + obscure capitals)
     visual3: [
       { category: "Flags", type: "flag", q: "Select the flag of Portugal.", code: "pt", options: ["pt", "es", "it", "br"] },
       { category: "Flags", type: "flag", q: "Select the flag of New Zealand.", code: "nz", options: ["nz", "au", "gb", "fj"] },
-      { category: "Maps", type: "map", q: "Click on the approximate location of Reykjavik, Iceland.", lat: 64.1466, lng: -21.9426, country: "Iceland", place: "Reykjavik" },
-      { category: "Maps", type: "map", q: "Click on the approximate location of Ulaanbaatar, Mongolia.", lat: 47.8864, lng: 106.9057, country: "Mongolia", place: "Ulaanbaatar" },
-      { category: "Maps", type: "map", q: "Click on the approximate location of Kathmandu, Nepal.", lat: 27.7172, lng: 85.324, country: "Nepal", place: "Kathmandu" },
-      { category: "Maps", type: "map", q: "Click on the approximate location of Marrakech, Morocco.", lat: 31.6295, lng: -7.9811, country: "Morocco", place: "Marrakech" },
-      { category: "Maps", type: "map", q: "Click on the approximate location of Wellington, New Zealand.", lat: -41.2865, lng: 174.7762, country: "New Zealand", place: "Wellington" },
       { category: "Flags", type: "flag", q: "Select the flag of Slovakia.", code: "sk", options: ["sk", "si", "hr", "ru"] },
       { category: "Flags", type: "flag", q: "Select the flag of Chad.", code: "td", options: ["td", "ro", "md", "be"] },
+      { category: "Maps", type: "map", q: "Click on the approximate location of Ulaanbaatar, Mongolia.", lat: 47.8864, lng: 106.9057, country: "Mongolia", place: "Ulaanbaatar" },
       { category: "Maps", type: "map", q: "Click on the approximate location of Astana, Kazakhstan.", lat: 51.1605, lng: 71.4704, country: "Kazakhstan", place: "Astana" },
       { category: "Maps", type: "map", q: "Click on the approximate location of La Paz, Bolivia.", lat: -16.4897, lng: -68.1193, country: "Bolivia", place: "La Paz" },
       { category: "Maps", type: "map", q: "Click on the approximate location of Tbilisi, Georgia.", lat: 41.7151, lng: 44.8271, country: "Georgia", place: "Tbilisi" },
-      { category: "Maps", type: "map", q: "Click on the approximate location of Windhoek, Namibia.", lat: -22.5609, lng: 17.0658, country: "Namibia", place: "Windhoek" }
+      { category: "Maps", type: "map", q: "Click on the approximate location of Windhoek, Namibia.", lat: -22.5609, lng: 17.0658, country: "Namibia", place: "Windhoek" },
+      { category: "Maps", type: "map", q: "Click on the approximate location of Tashkent, Uzbekistan.", lat: 41.2995, lng: 69.2401, country: "Uzbekistan", place: "Tashkent" },
+      { category: "Maps", type: "map", q: "Click on the approximate location of Bishkek, Kyrgyzstan.", lat: 42.8746, lng: 74.5698, country: "Kyrgyzstan", place: "Bishkek" },
+      { category: "Maps", type: "map", q: "Click on the approximate location of Yerevan, Armenia.", lat: 40.1792, lng: 44.4991, country: "Armenia", place: "Yerevan" },
+      { category: "Maps", type: "map", q: "Click on the approximate location of Vientiane, Laos.", lat: 17.9757, lng: 102.6331, country: "Laos", place: "Vientiane" },
+      { category: "Maps", type: "map", q: "Click on the approximate location of Asunción, Paraguay.", lat: -25.2637, lng: -57.5759, country: "Paraguay", place: "Asunción" }
     ],
 
     // ------------------------------------------------------- NUMBER (slot 10)

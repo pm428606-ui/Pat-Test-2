@@ -220,9 +220,23 @@
   }
 
   function renderMap(q, body) {
+    // Image-map: show a photo of a famous landmark to locate, fetched from
+    // Wikipedia by article title. Falls back to a named prompt if it fails.
+    if (q.wiki || q.img) {
+      const fig = document.createElement("div");
+      fig.className = "landmark-figure";
+      const img = document.createElement("img");
+      img.className = "landmark-img";
+      img.alt = "Mystery landmark";
+      fig.appendChild(img);
+      body.appendChild(fig);
+      loadLandmarkImage(q, img, fig);
+    }
     const tip = document.createElement("p");
     tip.className = "hint";
-    tip.textContent = "Click the map to drop your pin. Closer = more points. Right country earns a bonus.";
+    tip.textContent = q.wiki || q.img
+      ? "Drop your pin where in the world this is. Closer = more points; right country earns a bonus."
+      : "Click the map to drop your pin. Closer = more points. Right country earns a bonus.";
     body.appendChild(tip);
     const mapEl = document.createElement("div");
     mapEl.id = "leaflet-map";
@@ -234,6 +248,31 @@
       state.response = resp;
       enableSubmit();
     });
+  }
+
+  // Fetch a landmark photo from Wikipedia (CORS-enabled). If anything fails,
+  // hide the image and name the place so the question is still answerable.
+  function loadLandmarkImage(q, img, fig) {
+    const fallback = () => {
+      fig.innerHTML = "";
+      const note = document.createElement("p");
+      note.className = "hint";
+      note.textContent = `(image unavailable) Locate: ${q.place}.`;
+      fig.appendChild(note);
+    };
+    img.onerror = fallback;
+    if (q.img) { img.src = q.img; return; }
+    const api = "https://en.wikipedia.org/w/api.php?action=query&format=json&origin=*" +
+      "&prop=pageimages&piprop=thumbnail&pithumbsize=900&titles=" + encodeURIComponent(q.wiki);
+    fetch(api)
+      .then((r) => r.json())
+      .then((d) => {
+        const pages = (d && d.query && d.query.pages) || {};
+        const page = Object.keys(pages).length ? pages[Object.keys(pages)[0]] : null;
+        const src = page && page.thumbnail && page.thumbnail.source;
+        if (src) img.src = src; else fallback();
+      })
+      .catch(fallback);
   }
 
   function renderNumber(q, body) {

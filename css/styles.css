@@ -280,6 +280,24 @@ h3 { color: var(--ink); }
   border: 1px solid var(--line-strong);
 }
 
+/* image-map (landmark) photo */
+.landmark-figure {
+  width: 100%;
+  min-height: 60px;
+  margin-bottom: 4px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--surface);
+  border: 1px solid var(--line);
+}
+.landmark-img {
+  display: block;
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  background: var(--surface);
+}
+
 /* ---------- feedback ---------- */
 .feedback {
   margin-top: 18px;

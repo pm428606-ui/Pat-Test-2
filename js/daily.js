@@ -13,7 +13,7 @@
   // (and every day) without waiting for the date to roll over — e.g. after
   // expanding the question bank. It folds into the daily seed, so the
   // selection stays deterministic and identical for every player.
-  const EDITION = "2026-06-08.2";
+  const EDITION = "2026-06-09.1";
 
   // Return the calendar date in America/New_York as a "YYYY-MM-DD" string.
   // Using Intl avoids manual DST math (EST/EDT handled for us).
